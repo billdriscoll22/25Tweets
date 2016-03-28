@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" href="/">25Tweets</a>
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <% if user_signed_in? %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.email %>
+              <span class="caret"></span>
+            </a>
+          <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              User
+              <span class="caret"></span>
+            </a>
+          <% end %>
+          <ul class="dropdown-menu">
+            <% if user_signed_in? %>
+              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </li>
+       </ul>
+     </div>
+  </div>
+</nav>

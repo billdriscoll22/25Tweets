@@ -1,0 +1,8 @@
+<% @tweets.each do |tweet| %>
+  <h3>
+    <span class="text-muted">
+      <%= tweet.tweet_created_at.to_datetime.strftime('%m/%d/%y %H:%M') %>
+    </span>
+    <%= tweet.text %>
+  </h3>
+<% end %>

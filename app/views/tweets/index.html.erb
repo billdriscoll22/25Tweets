@@ -1,0 +1,17 @@
+<div class="container-fluid text-left">
+  <div class="row">
+    <div id="search" class="col-md-4">
+      <%= form_tag('/tweets/recent_tweets', method: 'get', id: 'tweet_form', remote: true, class: 'form-inline', style: 'padding-top: 20px;') do %>
+        <div class="form-group form-group-lg">
+          <%= label_tag(:handle, 'Search for:', class: 'sr-only') %>
+          <div class="input-group input-group-lg">
+            <div class="input-group-addon">@</div>
+            <%= text_field_tag(:handle, '', id: 'tags', class: 'form-control input-lg', placeholder: 'Twitter handle') %>
+          </div>
+        </div>
+        <%= button_tag('Search', data: { disable_with: 'Please wait...'}, class: 'btn btn-primary btn-lg') %>
+      <% end %>
+    </div>
+    <div id="tweets" class="col-md-8"></div>
+  </div>
+</div>
